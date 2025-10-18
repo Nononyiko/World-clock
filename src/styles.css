@@ -15,147 +15,99 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
-.weather-app {
-  width: 360px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
+.app-wrapper {
+  width: 90%;
+  max-width: 400px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  box-sizing: border-box;
 }
 
-#current-date {
-  font-size: 16px;
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: var(--primary-hover);
+}
+
+#local-time {
+  font-size: 18px;
   color: var(--secondary-text);
   margin-bottom: 15px;
 }
 
-.search-form {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  gap: 10px;
-}
-
-#search-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.search-form button {
-  padding: 10px 16px;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.search-form button:hover {
-  background-color: var(--primary-hover);
-}
-
-.current-weather h1 {
-  font-size: 48px;
-  color: var(--primary-hover);
-  margin: 10px 0;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.current-weather p {
-  font-size: 16px;
-  margin: 5px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-}
-
-.icon {
-  font-size: 22px;
-}
-
-.spinner {
-  width: 16px;
-  height: 16px;
-  border: 3px dotted var(--primary-color);
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#weather-icon {
-  width: 80px;
-  margin-top: 10px;
-  display: none;
-}
-
-.forecast {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.weather-day {
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 8px;
-  width: 65px;
-  flex: 1;
-  text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.weather-day img {
-  width: 40px;
-  margin: 6px 0;
-}
-
-.day-name {
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
-.day-date {
-  font-size: 12px;
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
   color: var(--secondary-text);
 }
 
-.day-temp {
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: var(--primary-color);
+}
+
+#city-time {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-hover);
+}
+
+#home-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
   font-size: 14px;
-  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+#home-link:hover {
+  background-color: var(--primary-hover);
 }
 
 footer {
-  margin-top: 25px;
-  text-align: center;
+  width: 100%;
   background-color: #fff;
   border-top: 1px solid var(--border-color);
   font-size: 13px;
   color: var(--secondary-text);
+  padding: 12px 14px;
+  margin-top: 12px;
   border-radius: 0 0 10px 10px;
-  width: 90%;
-  max-width: 400px;
-  padding: 15px 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  box-sizing: border-box;
 }
 
 footer a {
@@ -166,4 +118,33 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .app-wrapper {
+    width: 95%;
+    margin-top: 30px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #local-time, #city-time {
+    font-size: 16px;
+  }
+
+  #home-link {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
 }
